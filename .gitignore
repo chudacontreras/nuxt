@@ -107,3 +107,6 @@ venv.bak/
 .env
 .vscode/
 .vscode
+
+#nuxt
+.nuxt/
