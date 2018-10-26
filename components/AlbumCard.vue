@@ -19,7 +19,7 @@ export default {
 
 <style lang="css">
 .box{
-    paddiing:1em;
+    padding:1em;
 }
 h3{
     min-height: 5em;
