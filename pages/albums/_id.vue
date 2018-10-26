@@ -1,5 +1,15 @@
 <template lang="html">
-    <h1>{{album.title}}</h1>
+<div class="container">
+    <a href="#" class="button is-primary">regresar</a>
+<h1 class="title">{{album.title}}</h1>
+   <div class="columns is-multiline">
+       <div class="column is-one-quarter" v-for="photo in photos" :key="photo.id">
+           <img :src="photo.url " :alt="photo.tile" />
+       </div>
+   </div>
+
+</div>
+    
 </template>
 
 <script>
@@ -18,13 +28,23 @@ export default {
         //console.log(this.$route);
         //let albumId = this.$route.params.id;
         //console.log(albumId);
-        axios.get(`${env.enpoint}/albums/${this.$route.params.id}`)
+        axios.get(`${env.endpoint}/albums/${this.$route.params.id}`)
         .then(albumResponse=>{
             this.album = albumResponse.data;
-        })
+        });
+        axios.get(`${env.endpoint}/albums/${this.$route.params.id}/photos`)
+        .then(photosResponse=>{
+            this.photos = photosResponse.data;
+        });
     }
 }
 </script>
-<style lang="css">
+<style scoped>
+.container{
+    text-align: center;
+}
+.title{
+    margin-top: 100px;
+}
 
 </style>
