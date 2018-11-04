@@ -3,8 +3,8 @@
 <h1 class="title">...::...Albums de la pagina ...::...</h1>
 <div class="columns is-multiline">
 <AlbumCard :album="album" v-for="album in albums" :key="album.id" />
-</div> 
-</div> 
+</div>
+</div>
 </template>
 
 <script>

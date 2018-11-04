@@ -1,5 +1,9 @@
 export default {
-    endpoint: 'https://jsonplaceholder.typicode.com'
+    endpoint: newFunction()
 
 
+}
+
+function newFunction() {
+    return 'https://jsonplaceholder.typicode.com';
 }
