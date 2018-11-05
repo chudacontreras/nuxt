@@ -25,7 +25,7 @@ export default {
       photos: []
     };
   },
-  created() {
+  /*created() {
     //console.log(this.$route);
     //let albumId = this.$route.params.id;
     //console.log(albumId);
@@ -38,16 +38,20 @@ export default {
       .get(`${env.endpoint}/albums/${this.$route.params.id}/photos`)
       .then(photosResponse => {
         this.photos = photosResponse.data;
-      });
-  }
+      });*/
+      created: async function () {
+        let albumResponse = await axios.get(`${env.endpoint}/albums/${this.$route.params.id}`);
+        this.album = albumResponse.data;
+        let photoResponse = await axios.get(`${env.endpoint}/albums/${this.$route.params.id}/photos`);
+        this.photos = photoResponse.data;
+
+      }
+
 };
 </script>
 <style scoped>
 .container {
   text-align: center;
 }
-header {
-  margin-top: 100px;
-  margin-bottom: 100px;
-}
+
 </style>
